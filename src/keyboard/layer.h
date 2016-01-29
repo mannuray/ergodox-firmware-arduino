@@ -11,7 +11,7 @@ class Layer {
     KeyExecutor *keyExecutors[ROWS][COLUMNS];
 
   public:
-    virtual void init() = 0;
+    virtual void init() {};
     #define K(key) KeyExecutor *key
 
      virtual void init(                                       
@@ -46,8 +46,7 @@ class Layer {
 class DovarkLayer : public Layer {
   KeyBoard *keyBoard;
   public:
-    DovarkLayer(KeyBoard *keyBoard);
-    void init();
+    void init(KeyBoard *keyBoard);
 };
 
 

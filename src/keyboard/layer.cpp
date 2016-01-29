@@ -55,12 +55,12 @@ void Layer::executeRelease(int row, int column) {
   }
 }
 
-
+/*
 DovarkLayer::DovarkLayer(KeyBoard *keyBoard): keyBoard(keyBoard) {
   
-}
+} */
 
-void DovarkLayer::init() {
+void DovarkLayer::init(KeyBoard *keyBoard) {
   KeyLayerChanger *chng = new KeyLayerChanger(keyBoard);
   #define KEY_ACCENT HID_KEYBOARD_GRAVE_ACCENT_AND_TILDE
 
