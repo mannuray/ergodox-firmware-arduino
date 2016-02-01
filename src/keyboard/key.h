@@ -1,7 +1,12 @@
 #ifndef __KEY__
 #define __KEY__
 
-#include "keyboard.h"
+#include <stdint.h>
+#include <Arduino.h>
+#include <HID-Project.h>
+#include <HID-Settings.h>
+
+class KeyBoard;
 
 class KeyExecutor {
   public:
@@ -10,10 +15,10 @@ class KeyExecutor {
 };
 
 class GeneralKey: public KeyExecutor {
-  char key;
+  KeyboardKeycode key;
 
   public:
-    GeneralKey(char key);
+    GeneralKey(KeyboardKeycode key);
     void executePress();
     void executeRelease();
 };

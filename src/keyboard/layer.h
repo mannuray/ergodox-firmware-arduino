@@ -2,6 +2,8 @@
 #define __LAYER__
 
 #include "option.h"
+#include "keydef.h"
+#include "key.h"
 
 class KeyExecutor;
 class KeyBoard;
@@ -12,29 +14,33 @@ class Layer {
 
   public:
     virtual void init() {};
-    #define K(key) KeyExecutor *key
+    #define k(key) KeyExecutor *key
 
-     virtual void init(                                       
+    #define K(key) KeyExecutor *key
+    #define KE(row, column, key) keyExecutors[row][column] = key
+    
+    void init(                                       
       
       /*left hand, spatial positions */
-      K(k50), K(k51), K(k52), K(k53), K(k54), K(k55), K(k56),
-      K(k40), K(k41), K(k42), K(k43), K(k44), K(k45), K(k46),
-      K(k30), K(k31), K(k32), K(k33), K(k34), K(k35),   
-      K(k20), K(k21), K(k22), K(k23), K(k24), K(k25), K(k26),
-      K(k10), K(k11), K(k12), K(k13), K(k14),
-                                              K(k05), K(k06),
-                                      K(k15), K(k16), K(k04),
-                                      K(k03), K(k02), K(k01),
+      k(k00),  k(k01),  k(k02),  k(k03),  k(k04),  k(k05),  k(k06),
+      k(k10),  k(k11),  k(k12),  k(k13),  k(k14),  k(k15),  k(k16),  
+      k(k20),  k(k21),  k(k22),  k(k23),  k(k24),  k(k25),   
+      k(k30),  k(k31),  k(k32),  k(k33),  k(k34),  k(k35),  k(k36),  
+      k(k40),  k(k41),  k(k42),  k(k43),  k(k44),  
+                                                   k(k46),  k(k56),  
+                                                            k(k55),  
+                                          k(k52),  k(k53),  k(k54),
                                          
       /*right hand, spatial positions */ 
-      K(k57), K(k58), K(k59), K(k5A), K(k5B), K(k5C), K(k5D),
-      K(k47), K(k48), K(k49), K(k4A), K(k4B), K(k4C), K(k4D),
-              K(k38), K(k39), K(k3A), K(k3B), K(k3C), K(k3D),
-      K(k27), K(k28), K(k29), K(k2A), K(k2B), K(k2C), K(k2D),
-                      K(k19), K(k1A), K(k1B), K(k1C), K(k1D),
-      K(k07), K(k08),                                               
-      K(k09), K(k17), K(k18),
-      K(k0C), K(k0B), K(k0A) );
+      k(k07),  k(k08),  k(k09),  k(k0A),  k(k0B),  k(k0C),  k(k0D),
+      k(k17),  k(k18),  k(k19),  k(k1A),  k(k1B),  k(k1C),  k(k1D),  
+               k(k28),  k(k29),  k(k2A),  k(k2B),  k(k2C),  k(k2D),  
+      k(k37),  k(k38),  k(k39),  k(k3A),  k(k3B),  k(k3C),  k(k3D),  
+                        k(k49),  k(k4A),  k(k4B),  k(k4C),  k(k4D),  
+      k(k57),  k(k47),   
+      k(k58),   
+      k(k59),  k(k5A), k(k5B));
+
 
     #undef k
     
@@ -46,7 +52,8 @@ class Layer {
 class DovarkLayer : public Layer {
   KeyBoard *keyBoard;
   public:
-    void init(KeyBoard *keyBoard);
+    DovarkLayer(KeyBoard *keyBoard);
+    void init();
 };
 
 

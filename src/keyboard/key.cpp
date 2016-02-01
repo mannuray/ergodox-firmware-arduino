@@ -1,17 +1,20 @@
 #include <Arduino.h>
 #include <HID-Project.h>
 #include <HID-Settings.h>
+#include <stdint.h>
 
 #include "key.h"
 #include "keyboard.h"
 
 
-GeneralKey::GeneralKey(char key): key(key) {
+
+GeneralKey::GeneralKey(KeyboardKeycode key): key(key) {
 
 }
 
 void GeneralKey::executePress() {
   Keyboard.press(key);
+  Serial.print("\nI2C keys press executor  ");  Serial.print( key );
 }
 
 void GeneralKey::executeRelease(){

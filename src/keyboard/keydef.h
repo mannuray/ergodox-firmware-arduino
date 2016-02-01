@@ -1,9 +1,7 @@
 #ifndef __KEY_DEF__
 #define __KEY_DEF__
 
-#include <Arduino.h>
-#include <HID-Project.h>
-#include <HID-Settings.h>
+#include "key.h"
 
 #define GK(key) new GeneralKey(key)
 #define NA NULL

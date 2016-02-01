@@ -10,17 +10,11 @@ class KeyBoard {
   bool (*pIsPressed)[ROWS][COLUMNS];
   bool (*pWasPressed)[ROWS][COLUMNS];
  
-  Layer *layers[2];
+  Layer **layers; //[2];
   //Layer *transparentLayer; //  see how we can implement it
   int currentLayer = 0;
-  DovarkLayer l1;
-  GeneralLayer l2;
 
-  KeyScanner *scanners[2];
-
-  ArduinoKeyScanner s1;
-  //IOExpanderKeyScanner s2;
-
+  KeyScanner **scanners; //[2];
   
 
   bool caps = false;

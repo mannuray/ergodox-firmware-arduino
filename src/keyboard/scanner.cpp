@@ -5,26 +5,40 @@
 #include "scanner.h"
 #include "option.h"
 
-void ArduinoKeyScanner ::scanKeys(bool (*keyMatrix)[ROWS][COLUMNS]) {
+void ArduinoKeyScanner::init() {
+
+  for(int row = 0; row < ROWS; row++) {
+    pinMode(rows[row], OUTPUT);
+  }
+
+  for(int column = 0; column < COLUMNS_HALF; column++) {
+    pinMode(columns[column], INPUT_PULLUP);
+  }
+}
+
+void ArduinoKeyScanner::scanKeys(bool (*keyMatrix)[ROWS][COLUMNS]) {
   // this is a column driven scan
   // for row driven scan, interchange row and column loop
-  Serial.println("\nI2C scanning keys  ");
 
-  for(int column = 5; column < 7/*OLUMNS_HALF*/; column++) {
-    Serial.print("\nI2C column  "); Serial.print( column ); Serial.print( " " ); Serial.print( columns[column] );
+  for(int column = 0; column < COLUMNS_HALF; column++) {
     digitalWrite(columns[column], HIGH);
-    for(int row = 0; row < ROWS; row++) {
-      Serial.print("\nI2C rots "); Serial.print( row ); Serial.print( " " ); Serial.print( rows[row] );
-      Serial.print(" Value start "); Serial.print((*keyMatrix)[row][column + startColumn]);
-      (*keyMatrix)[row][column + startColumn] = digitalRead(rows[row]);
-      Serial.print(" Value end "); Serial.print((*keyMatrix)[row][column + startColumn]);
+  }
+
+  for(int row = 0; row < ROWS; row++) {
+    digitalWrite(rows[row], HIGH);
+  }
+
+  for(int row = 0; row < ROWS; row++) {
+    digitalWrite(rows[row], LOW);
+    for(int column = 0; column < COLUMNS_HALF; column++) {
+      (*keyMatrix)[row][column + startColumn] = !digitalRead(columns[column]);
     }
-    digitalWrite(columns[column], LOW);
+    digitalWrite(rows[row], HIGH);
   }
 }
 
 
-IOExpanderKeyScanner::IOExpanderKeyScanner() {
+void IOExpanderKeyScanner::init() {
   Wire.beginTransmission(address);
   Wire.write(0x01); // port B will drive the columns, set to output
   Wire.write(0x00);
