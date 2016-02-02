@@ -14,7 +14,7 @@ class KeyScanner {
 
 class ArduinoKeyScanner : public KeyScanner {
   const int rows[ROWS] = {A0, A1, A2, A3, A4, A5 };
-  const int columns[COLUMNS_HALF] = {5, 6, 7, 8, 9, 10, 11};
+  const int columns[COLUMNS_HALF] = {11, 10, 9, 8, 7, 6, 5};
   const int startColumn = 7;
 
   public:

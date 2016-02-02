@@ -32,7 +32,7 @@ void Layer::init(
   k(k58),   
   k(k59),  k(k5A), k(k5B) ) {
 
-    KE(0,0,k00); KE(0,1,k01); KE(0,2,k02); KE(0,3,k03); KE(0,4,k04); KE(0,5,k05); KE(0,6,k06); KE(0,7,k07); KE(0,8,k08); KE(9,0,k09); KE(0,10,k0A); KE(0,11,k0B); KE(0,12,k0C); KE(0,13,k0D);
+    KE(0,0,k00); KE(0,1,k01); KE(0,2,k02); KE(0,3,k03); KE(0,4,k04); KE(0,5,k05); KE(0,6,k06); KE(0,7,k07); KE(0,8,k08); KE(0,9,k09); KE(0,10,k0A); KE(0,11,k0B); KE(0,12,k0C); KE(0,13,k0D);
     KE(1,0,k10); KE(1,1,k11); KE(1,2,k12); KE(1,3,k13); KE(1,4,k14); KE(1,5,k15); KE(1,6,k16); KE(1,7,k17); KE(1,8,k18); KE(1,9,k19); KE(1,10,k1A); KE(1,11,k1B); KE(1,12,k1C); KE(1,13,k1D);
     KE(2,0,k20); KE(2,1,k21); KE(2,2,k22); KE(2,3,k23); KE(2,4,k24); KE(2,5,k25); KE(2,6,NA ); KE(2,7,NA ); KE(2,8,k28); KE(2,9,k29); KE(2,10,k2A); KE(2,11,k2B); KE(2,12,k2C); KE(2,13,k2D);
     KE(3,0,k30); KE(3,1,k31); KE(3,2,k32); KE(3,3,k33); KE(3,4,k34); KE(3,5,k35); KE(3,6,k36); KE(3,7,k37); KE(3,8,k38); KE(3,9,k39); KE(3,10,k3A); KE(3,11,k3B); KE(3,12,k3C); KE(3,13,k3D);
@@ -46,7 +46,7 @@ void Layer::init(
 void Layer::executePress(int row, int column) {
   if(keyExecutors[row][column] != NULL) {
     keyExecutors[row][column]->executePress();
-    //Serial.print("\nI2C keys press original "); Serial.print( keyExecutors[row][column]->getKey() );
+    //Serial.print("\nI2C keys press original "); Serial.print( keyExecutors[0][9]->executePress );
   }
 }
 
