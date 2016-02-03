@@ -38,7 +38,7 @@ void setup() {
 
   // init scanners
   scanners[0] = &s1;
-  scanners[1] = &s1;
+  scanners[1] = &s2;
 
   for(int s = 0; s < 2; s++) {
     scanners[s]->init();
