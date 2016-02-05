@@ -70,7 +70,7 @@ void DovarkLayer::init() {
     _BACKSLASH,   _SLASH,         _COMMA,         _PERIOD,         _P,              _Y,              _CAPS_LOCK,
     _TAB,         _A,             _O,             _E,              _U,              _I,
     _LEFT_SHIFT,  _SEMICOLON,     _Q,             _J,              _K,              _X,              chng,
-    _LEFT_CTRL,   _ACCENT,        _LEFT_ALT,     _LEFT_ARROW,     _RIGHT_ARROW,
+    _LEFT_CTRL,   _ACCENT,        _LEFT_ALT,      _MENU,           _RIGHT_ARROW,
                                                                                     _LEFT_GUI,       _LEFT_ALT,
                                                                                                      _HOME,
                                                                    _BACKSPACE,      _DELETE,         _END,
@@ -94,20 +94,20 @@ void GeneralLayer::init() {
   KeyLayerChanger *chng = new KeyLayerChanger(keyBoard);
 
   Layer::init(
-    NA,             _F1,            _F2,           _F3,             _F4,            _F5,           _F11,
+    _ESC,           _F1,            _F2,           _F3,             _F4,            _F5,           _F11,
     NA,             NA,             NA,             NA,             NA,             NA,             _CAPS_LOCK,
     _TAB,           NA,             NA,             NA,             NA,             NA,           
     _LEFT_SHIFT,    NA,             NA,             NA,             NA,             NA,             chng,
-    _LEFT_CTRL,     NA,             _LEFT_ALT,      NA,             NA,           
+    _LEFT_CTRL,     NA,             _LEFT_ALT,      _MENU,          NA,           
                                                                                     _LEFT_GUI,     _LEFT_ALT,
                                                                                                    _HOME,
                                                                     _BACKSPACE,     _DELETE,       _END,
   
     _F12,           _F6,            _F7,            _F8,            _F9,            _F10,           NA,
-    NA,             NA,             NA,             NA,             NA,             NA,             NA,
-                    NA,             NA,             NA,             NA,             NA,             NA,
-    NA,             NA,             NA,             NA,             NA,             NA,             NA,
-                                    NA,             NA,             NA,             NA,             NA,
+    NA,             NA,             NA,             NA,             NA,             NA,             _NUM_LOCK,
+                    NA,             NA,             NA,             NA,             NA,             _PRINTSCREEN,
+    NA,             NA,             NA,             NA,             NA,             NA,             _RIGHT_SHIFT,
+                                    NA,             NA,             NA,             NA,             _RIGHT_CTRL,
     _RIGHT_GUI ,   _RIGHT_ALT,
     _PAGE_UP,     
     _PAGE_DOWN,    _RETURN,         _SPACE);

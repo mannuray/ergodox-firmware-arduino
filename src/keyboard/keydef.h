@@ -82,6 +82,10 @@
 #define _PAGE_UP          GK(KEY_PAGE_UP)
 #define _PAGE_DOWN        GK(KEY_PAGE_DOWN)
 
+#define _PRINTSCREEN	  GK(KEY_PRINTSCREEN)
+#define _NUM_LOCK	  GK(KEY_NUM_LOCK)
+#define _MENU		  GK(KEY_MENU)
+
 #define _F1               GK(KEY_F1)
 #define _F2               GK(KEY_F2)
 #define _F3               GK(KEY_F3)
