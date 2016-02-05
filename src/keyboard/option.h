@@ -7,5 +7,7 @@
 #define KEYLAYERS 2
 #define DEBOUNCE_TIME 50
 #define CAP_LED_PIN 13
+//#define DEBOUNCE_TIME 2000
+
 
 #endif

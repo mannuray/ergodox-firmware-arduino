@@ -23,9 +23,17 @@ class ArduinoKeyScanner : public KeyScanner {
 };
 
 class IOExpanderKeyScanner : public KeyScanner {
-  const int address = 0x20;
-  const int GPIOA = 0x12;
-  const int GPIOB = 0x13;
+  const byte  IOX_BASE_ADR =0x20;      // Base Address of MCP23017 Chip with address lines all set to zero (grounded)
+                                     // Address for second MCP23017 would be 0x21, the next 0x22, etc.
+
+  //MCP23017 internal registers - Not all registers included. See the Microchip MCP23017 datasheet for full list
+  const byte  IODIRA = 0x00;           // Port A direction register. Write a 0 to make a pin an output, a 1 to make it an input
+  const byte  IODIRB = 0x01;           // Port B direction register. Write a 0 to make a pin an output, a 1 to make it an input
+  const byte  GPIOA = 0x12;            // Register Address of Port A - read data from or write output data to this port
+  const byte  GPPUA =  0x0c;           // Register to enable the internal pull up resistors on Port A. 1 = pull up enabled
+  const int   GPIOB = 0x13;            // Register Address of Port B - read data from or write output data to this port
+  const byte  GPPUB =  0x0d;           // Register to enable the internal pull up resistors on Port B. 1 = pull up enabled
+
 
   public:
     void init();

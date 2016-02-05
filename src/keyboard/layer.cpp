@@ -65,9 +65,6 @@ void DovarkLayer::init() {
   KeyLayerChanger *chng = new KeyLayerChanger(keyBoard);
   #define KEY_ACCENT HID_KEYBOARD_GRAVE_ACCENT_AND_TILDE
 
-  GeneralKey kRight(KEY_RIGHT_BRACE);
-
-
   Layer::init(
     _EQUAL,       _1,             _2,             _3,              _4,              _5,              _ESC,
     _BACKSLASH,   _SLASH,         _COMMA,         _PERIOD,         _P,              _Y,              _CAPS_LOCK,
