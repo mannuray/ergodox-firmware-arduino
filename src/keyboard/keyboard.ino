@@ -9,7 +9,7 @@ KeyBoard k;
 
 
 DovarkLayer l1(&k);
-GeneralLayer l2;
+GeneralLayer l2(&k);
 
 ArduinoKeyScanner s1;
 IOExpanderKeyScanner s2; 

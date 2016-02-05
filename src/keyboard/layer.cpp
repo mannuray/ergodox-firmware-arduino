@@ -70,10 +70,10 @@ void DovarkLayer::init() {
 
   Layer::init(
     _EQUAL,       _1,             _2,             _3,              _4,              _5,              _ESC,
-    _BACKSLASH,   _SLASH,         _COMMA,         _PERIOD,         _P,              _Y,              chng,
-    _ESC,         _A,             _O,             _E,              _U,              _I,
-    _TAB,         _SEMICOLON,     _Q,             _J,              _K,              _X,              chng,
-    _LEFT_CTRL,   _ACCENT,        _BACKSLASH,     _LEFT_ARROW,     _RIGHT_ARROW,
+    _BACKSLASH,   _SLASH,         _COMMA,         _PERIOD,         _P,              _Y,              _CAPS_LOCK,
+    _TAB,         _A,             _O,             _E,              _U,              _I,
+    _LEFT_SHIFT,  _SEMICOLON,     _Q,             _J,              _K,              _X,              chng,
+    _LEFT_CTRL,   _ACCENT,        _LEFT_ALT,     _LEFT_ARROW,     _RIGHT_ARROW,
                                                                                     _LEFT_GUI,       _LEFT_ALT,
                                                                                                      _HOME,
                                                                    _BACKSPACE,      _DELETE,         _END,
@@ -82,31 +82,37 @@ void DovarkLayer::init() {
     _LEFT_BRACE,  _F,             _G,             _C,              _R,              _L,              _RIGHT_BRACE,
                   _D,             _H,             _T,              _N,              _S,              _SLASH,
     NA,           _B,             _M,             _W,              _V,              _Z,              _RIGHT_SHIFT,
-                                  _LEFT_ARROW,    _DOWN_ARROW,     _UP_ARROW,       _RIGHT_ARROW,    _RIGHT_GUI,
-    _RIGHT_ALT ,  _RIGHT_CTRL,
+                                  _LEFT_ARROW,    _DOWN_ARROW,     _UP_ARROW,       _RIGHT_ARROW,    _RIGHT_CTRL,
+    _RIGHT_GUI ,  _RIGHT_ALT,
     _PAGE_UP,     
     _PAGE_DOWN,   _RETURN,        _SPACE);
 }
 
 
+GeneralLayer::GeneralLayer(KeyBoard *keyBoard): keyBoard(keyBoard) {
+  
+}
+
 void GeneralLayer::init() {
+  KeyLayerChanger *chng = new KeyLayerChanger(keyBoard);
+
   Layer::init(
     NA,             _F1,            _F2,           _F3,             _F4,            _F5,           _F11,
-    NA,             NA,             NA,             NA,             NA,             NA,             NA,
-    NA,             NA,             NA,             NA,             NA,             NA,           
-    NA,             NA,             NA,             NA,             NA,             NA,             NA,
-    NA,             NA,             NA,             NA,             NA,           
-                                                                                    NA,             NA,
-                                                                                                    NA,
-                                                                    NA,             NA,             NA,
+    NA,             NA,             NA,             NA,             NA,             NA,             _CAPS_LOCK,
+    _TAB,           NA,             NA,             NA,             NA,             NA,           
+    _LEFT_SHIFT,    NA,             NA,             NA,             NA,             NA,             chng,
+    _LEFT_CTRL,     NA,             _LEFT_ALT,      NA,             NA,           
+                                                                                    _LEFT_GUI,     _LEFT_ALT,
+                                                                                                   _HOME,
+                                                                    _BACKSPACE,     _DELETE,       _END,
   
     _F12,           _F6,            _F7,            _F8,            _F9,            _F10,           NA,
     NA,             NA,             NA,             NA,             NA,             NA,             NA,
                     NA,             NA,             NA,             NA,             NA,             NA,
     NA,             NA,             NA,             NA,             NA,             NA,             NA,
                                     NA,             NA,             NA,             NA,             NA,
-    NA,             NA,
-    NA,             
-    NA,             NA,             NA);
+    _RIGHT_GUI ,   _RIGHT_ALT,
+    _PAGE_UP,     
+    _PAGE_DOWN,    _RETURN,         _SPACE);
 }
 

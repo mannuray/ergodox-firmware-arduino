@@ -58,7 +58,9 @@ class DovarkLayer : public Layer {
 
 
 class GeneralLayer : public Layer {
+  KeyBoard *keyBoard;
   public:
+    GeneralLayer(KeyBoard *keyBoard);
     void init();
 };
     
