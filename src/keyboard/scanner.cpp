@@ -59,8 +59,6 @@ void IOExpanderKeyScanner::init() {
 void IOExpanderKeyScanner::scanKeys(bool (*keyMatrix)[ROWS][COLUMNS]) {
   uint8_t output = 128;
   uint8_t mask = 1;
-
-  Serial.println("\n");
   
   for(int row = 0; row < ROWS; row++) {
     

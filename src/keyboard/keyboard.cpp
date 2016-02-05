@@ -23,7 +23,7 @@ void KeyBoard::init(Layer **layers, KeyScanner **scanners) {
 }
 
 void KeyBoard::rotateLayer() {
-  ++currentLayer >= KEYLAYERS ? : currentLayer = 0;
+  currentLayer = currentLayer >= KEYLAYERS ? ++currentLayer : 0;
 }
 
 void KeyBoard::loop() {
@@ -36,12 +36,10 @@ void KeyBoard::loop() {
     scanners[i]->scanKeys(pIsPressed);
   }
   
-  //return;
   // see how the code for transpraent layer will work
   for(int row = 0; row < ROWS; row++) {
     for(int column = 0; column < COLUMNS; column++) {
       if((*pWasPressed)[row][column] != (*pIsPressed)[row][column]) {
-        //BSerial.print("\nI2C keys press "); Serial.print("row "); Serial.print(row); Serial.print(" column "); Serial.print( column );
         if((*pIsPressed)[row][column]) {
           layers[currentLayer]->executePress(row, column);
         }
